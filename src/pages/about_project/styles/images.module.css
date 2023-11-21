@@ -1,0 +1,12 @@
+.image{
+    width: 1000px;
+    width: 600px;
+    border: 2px solid #333;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,13 @@
+.container{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.line{
+    width: 1000px;
+    height: 3px;
+    margin: 50px auto 50px;
+    background-color: rgb(94, 94, 94);
+    filter: blur(2px);
+}
+

@@ -1,0 +1,27 @@
+.table{
+    width: 200px;
+    height: 200px;
+    color: black;
+    font-size: 20px;
+    background-color: rgb(216, 216, 255);
+    border: 3px solid blue;
+    transition: all 0.2s linear;
+}
+
+.table_active{
+    width: 200px;
+    height: 200px;
+    color: black;
+    font-size: 20px;
+    background-color: rgb(255, 209, 209);
+    border: 3px solid red;
+    transition: all 0.2s linear;
+}
+
+.table:hover{
+    cursor: pointer;
+}
+
+.table_active:hover{
+    cursor: pointer;
+}

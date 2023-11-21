@@ -1,0 +1,31 @@
+.container{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.content{
+    width: 1200px;
+    height: 800px;
+    margin: 20px auto;
+
+    border: 2px solid black;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "tables info";
+}
+
+.table_container{
+    grid-area: tables;
+    border-right: 2px solid black;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.table_info{
+    grid-area: info;
+    padding: 20px;
+}
