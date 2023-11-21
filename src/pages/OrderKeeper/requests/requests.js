@@ -1,15 +1,16 @@
 import axios from "axios";
 import { setProductList, setTables } from '../store/reducers/tablesSlice';
 
-let DELETE_URL = 'http://94.41.85.129:3000/order/delete/';
-let FETCH_ALL_PRODUCTS_URL = "http://94.41.85.129:3000/product/get/all";
-let POST_ORDER_URL = "http://94.41.85.129:3000/order/add";
-let SET_PAID_URL = "http://94.41.85.129:3000/table/paid/";
+let GET_UPDATES_URL = "http://94.41.16.249:3000/table/get_updates";
+let DELETE_URL = 'http://94.41.16.249:3000/order/delete/';
+let FETCH_ALL_PRODUCTS_URL = "http://94.41.16.249:3000/product/get/all";
+let POST_ORDER_URL = "http://94.41.16.249:3000/order/add";
+let SET_PAID_URL = "http://94.41.16.249:3000/table/paid/";
 
 
 export const update = (dispatch) =>{
     try{
-        axios.get("http://94.41.85.129:3000/table/get_updates")
+        axios.get(GET_UPDATES_URL)
             .then(response =>{
             dispatch(setTables(response.data.value))
     })
@@ -50,7 +51,7 @@ export const postOrder = (product, table, dispatch) =>{
 
 export const setPaidTable = (id, dispatch) =>{
     try{
-        axios.get(SET_PAID_URL+id)
+        axios.patch(SET_PAID_URL+id)
             .then(()=>update(dispatch))
     }catch(e){
         console.log("Error")
