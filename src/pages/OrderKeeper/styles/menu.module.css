@@ -14,3 +14,29 @@
     height: 50px;
     background-color: lightgreen;
 }
+
+.schet{
+    margin: 50px;
+    font-size: 16px;
+}
+
+.schet_sum{
+    color: green;;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.schet_btn_ok{
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    margin-left: 5px;
+    background-color: greenyellow;
+}
+.schet_btn_back{
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    margin-left: 5px;
+    background-color: red;
+}

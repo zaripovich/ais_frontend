@@ -24,9 +24,12 @@ const OrderList = ({setSum}) =>{
 
     
     return(
-        <div className="orderList">
-            {OrdersTag}
+        <div>
+            <div className="orderList">
+                {OrdersTag}
+            </div>
         </div>
+        
     )
 }
 

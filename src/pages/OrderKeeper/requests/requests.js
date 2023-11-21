@@ -49,11 +49,12 @@ export const postOrder = (product, table, dispatch) =>{
     }
 }
 
-export const setPaidTable = (id, dispatch) =>{
+export const setPaidTable = (id, dispatch, setActive) =>{
     try{
         axios.patch(SET_PAID_URL+id)
             .then(()=>update(dispatch))
     }catch(e){
         console.log("Error")
     }
+    setActive(false)
 }

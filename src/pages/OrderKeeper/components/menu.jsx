@@ -4,14 +4,15 @@ import "../styles/info.css"
 
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchAllProducts, postOrder, setPaidTable } from "../requests/requests"
-import { setClicked, setEditMode } from "../store/reducers/tablesSlice"
+import { deleteOrder, fetchAllProducts, postOrder, setPaidTable } from "../requests/requests"
+import { setClicked, setEditMode} from "../store/reducers/tablesSlice"
+import Modal from './modal';
 
 
 
 const Menu = (props) =>{
     const editMode = useSelector(state => state.tables.editMode)
-    
+    const [active, setActive] = useState(false)
     const clicked = useSelector(state => state.tables.clicked)
     const tables = useSelector(state => state.tables.tables)
     const currentTableId = useSelector(state => state.tables.currentTableId)
@@ -19,7 +20,6 @@ const Menu = (props) =>{
 
     const dispatch = useDispatch()
 
-    //запрос на получение списка продуктов
     useEffect(() => {
         fetchAllProducts(dispatch)
       }, []);
@@ -47,7 +47,11 @@ const Menu = (props) =>{
             </div>
         )
     }
-
+    let sum = 0
+    let ordersList = table.orders.map(function(element, index){
+        sum += element.price
+        return <p>{element.name} - {element.price}</p>
+      })
     
 
     return(
@@ -56,6 +60,15 @@ const Menu = (props) =>{
                 clicked
                 ?
                 <div className={style.menu_container}>
+                    <Modal active={active} setActive={setActive}>
+                        <div className={style.schet}>
+                            Счет стола №{table.id}
+                            {ordersList}
+                            <p className={style.schet_sum}>Сумма - {sum}</p>
+                            <button className={style.schet_btn_ok} onClick={()=>setPaidTable(table.id, dispatch, setActive)}>Готово</button>
+                            <button className={style.schet_btn_back} onClick={()=>setActive(false)}>Отмена</button>
+                        </div>
+                    </Modal>
                     <p>Стол №{table.id}</p>
                     {
                         editMode
@@ -70,7 +83,7 @@ const Menu = (props) =>{
                             ?
                             <div className={style.menu_container}>
                                 <button className={style.button} onClick={()=>dispatch(setEditMode(true))}>Редактировать заказ</button>
-                                {table.orders.length > 0 && <button className={style.button} onClick={()=>setPaidTable(table.id, dispatch)}>Расчитать и закрыть стол</button>}
+                                {table.orders.length > 0 && <button className={style.button} onClick={()=>setActive(true)}>Расчитать и закрыть стол</button>}
                                 <button className={style.button} onClick={()=>dispatch(setClicked(false))}>Закрыть</button>
                             </div>
                             :

@@ -1,5 +1,4 @@
 
-import axios from "axios";
 import { createSlice } from "@reduxjs/toolkit";
 
 
@@ -19,6 +18,7 @@ const tablesSlice = createSlice({
         editMode: false,
         clicked: false,
         currentTableId: 4,
+        modalActive: false,
     },
     reducers: {
         setTables: (state, action)=>{
@@ -36,11 +36,14 @@ const tablesSlice = createSlice({
         },
         setClicked: (state, action)=>{
             state.clicked = action.payload
-        }
+        },
+        setModalActive: (state, action)=>{
+            state.modalActive = state;
+        },
     },
 });
 
-export const {setTables, setCurrentTableID, setProductList, setEditMode, setClicked} = tablesSlice.actions;
+export const {setTables, setCurrentTableID, setProductList, setEditMode, setClicked, setModalActive} = tablesSlice.actions;
 
 export default tablesSlice.reducer;
 
