@@ -67,7 +67,7 @@ const Menu = (props) =>{
                             ?
                             <div className={style.menu_container}>
                                 <button className={style.button} onClick={()=>dispatch(setEditMode(true))}>Редактировать заказ</button>
-                                {table.orders.length > 0 && <button className={style.button}>Расчитать и закрыть стол</button>}
+                                {table.orders.length > 0 && <button className={style.button} onClick={()=>setPaidTable(table.id, dispatch, setEditMode)}>Расчитать и закрыть стол</button>}
                                 <button className={style.button} onClick={()=>dispatch(setClicked(false))}>Закрыть</button>
                             </div>
                             :

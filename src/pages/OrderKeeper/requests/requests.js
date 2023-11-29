@@ -1,11 +1,11 @@
 import axios from "axios";
 import { setProductList, setTables } from '../store/reducers/tablesSlice';
 
-let GET_UPDATES_URL = "http://94.41.16.249:3000/table/get_updates";
-let DELETE_URL = 'http://94.41.16.249:3000/order/delete/';
-let FETCH_ALL_PRODUCTS_URL = "http://94.41.16.249:3000/product/get/all";
-let POST_ORDER_URL = "http://94.41.16.249:3000/order/add";
-let SET_PAID_URL = "http://94.41.16.249:3000/table/paid/";
+let GET_UPDATES_URL = `http://${process.env.REACT_APP_ADDRESS}:${process.env.REACT_APP_PORT_BACK}/table/get_updates`;
+let DELETE_URL = `http://${process.env.REACT_APP_ADDRESS}:${process.env.REACT_APP_PORT_BACK}/order/delete/`;
+let FETCH_ALL_PRODUCTS_URL = `http://${process.env.REACT_APP_ADDRESS}:${process.env.REACT_APP_PORT_BACK}/product/get/all`;
+let POST_ORDER_URL = `http://${process.env.REACT_APP_ADDRESS}:${process.env.REACT_APP_PORT_BACK}/order/add`;
+let SET_PAID_URL = `http://${process.env.REACT_APP_ADDRESS}:${process.env.REACT_APP_PORT_BACK}/table/paid/`;
 
 
 export const update = (dispatch) =>{
